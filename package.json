@@ -1,0 +1,22 @@
+{
+  "name": "telegram_js",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/lordoys/telegram_js.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/lordoys/telegram_js/issues"
+  },
+  "homepage": "https://gitlab.com/lordoys/telegram_js#readme",
+  "dependencies": {
+    "telegraf": "^4.3.0"
+  }
+}
