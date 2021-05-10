@@ -17,6 +17,7 @@
   },
   "homepage": "https://gitlab.com/lordoys/telegram_js#readme",
   "dependencies": {
+    "express": "^4.17.1",
     "telegraf": "^4.3.0"
   }
 }
