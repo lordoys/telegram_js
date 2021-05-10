@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
-const port = 8080
-// const port = 3000
+// const port = 8080
+const port = 3000
 const { Telegraf } = require('telegraf')
 const bot = new Telegraf('1731362068:AAGZGBDhdv7h5-jBCps1ZyTPuq8ZPXD0Ztk')
 
