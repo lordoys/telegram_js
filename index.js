@@ -1,8 +1,8 @@
 const express = require('express')
 const Nightmare = require('nightmare')
 const app = express()
-// const port = 8080
-const port = 3000
+const port = 8080
+// const port = 3000
 const nightmare = Nightmare({ show: false })
 
 app.listen(port, () => {
@@ -49,6 +49,8 @@ app.listen(port, () => {
                 let str = 'Вот даты => ' + result + ' Выбери из списка и напиши какая тебе подходит.';
                 ctx.reply(str);
             })
+            .end()
+            .then(console.log)
             .catch(error => {
                 console.error('Search failed:', error)
             });
