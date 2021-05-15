@@ -1,16 +1,16 @@
-const express = require('express')
-const Nightmare = require('nightmare')
-const app = express()
-// const port = 8080
-const port = 3000
-const nightmare = Nightmare({ show: false })
+const express = require('express');
+const Nightmare = require('nightmare');
+const app = express();
+// const port = 8080;
+const port = 3000;
+const nightmare = Nightmare({ show: false });
 
 app.listen(port, () => {
-    const { Telegraf } = require('telegraf')
-    const bot = new Telegraf('1731362068:AAGZGBDhdv7h5-jBCps1ZyTPuq8ZPXD0Ztk')
+    const { Telegraf } = require('telegraf');
+    const bot = new Telegraf('1731362068:AAGZGBDhdv7h5-jBCps1ZyTPuq8ZPXD0Ztk');
 
-    bot.start((ctx) => ctx.reply('Добро пожаловать!')) //ответ бота на команду /start
-    bot.help((ctx) => ctx.reply('Тут ничего нет, пока.')) //ответ бота на команду /help
+    bot.start((ctx) => ctx.reply('Добро пожаловать!')); //ответ бота на команду /start
+    bot.help((ctx) => ctx.reply('Тут ничего нет, пока.')); //ответ бота на команду /help
     bot.command('book', (ctx) => {
         if(ctx.from.id === 237016450) {
             let str = 'Привет, ' + ctx.message.from.first_name + '! Сейчас посмотрим какие есть свободные даты.';
@@ -49,11 +49,9 @@ app.listen(port, () => {
                 let str = 'Вот даты => ' + result + ' Выбери из списка и напиши какая тебе подходит.';
                 ctx.reply(str);
             })
-            .end()
-            .then(console.log)
             .catch(error => {
                 console.error('Search failed:', error)
             });
-    })
-    bot.launch()
-})
+    });
+    bot.launch();
+});
