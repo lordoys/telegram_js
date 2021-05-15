@@ -1,8 +1,8 @@
 const express = require('express')
 const Nightmare = require('nightmare')
 const app = express()
-// const port = 8080
-const port = 3000
+const port = 8080
+// const port = 3000
 const nightmare = Nightmare({ show: false })
 
 app.listen(port, () => {
