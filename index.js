@@ -9,12 +9,13 @@ app.listen(port, () => {
     const { Telegraf } = require('telegraf')
     const bot = new Telegraf('1731362068:AAGZGBDhdv7h5-jBCps1ZyTPuq8ZPXD0Ztk')
 
-    // bot.start((ctx) => ctx.reply('ctx.message')) //ответ бота на команду /start
-    bot.help((ctx) => ctx.reply('Send me a sticker')) //ответ бота на команду /help
+    bot.start((ctx) => ctx.reply('Добро пожаловать!')) //ответ бота на команду /start
+    bot.help((ctx) => ctx.reply('Тут ничего нет, пока.')) //ответ бота на команду /help
     bot.command('book', (ctx) => {
         if(ctx.from.id === 237016450) {
             let str = 'Привет, ' + ctx.message.from.first_name + '! Сейчас посмотрим какие есть свободные даты.';
             ctx.reply(str);
+            console.log('Тут пошел ответ');
         }
 
         nightmare
@@ -30,6 +31,7 @@ app.listen(port, () => {
             .wait(2000)
             .wait('.cal-days')
             .evaluate(() => {
+                console.log('Тут начаналсь обратотка');
                 let result = [];
                 let allDays = document.querySelectorAll('.cal-day-cell');
                 allDays.forEach((item) => {
@@ -39,11 +41,13 @@ app.listen(port, () => {
                         result.push(item.querySelector('.cal-day-number').textContent);
                     }
                 });
+                console.log('Возращаем результат');
                 return result;
             })
             .then(result => {
-                console.log('Good');
-                ctx.reply(result);
+                console.log('Отвечаем');
+                let str = 'Вот даты => ' + result + ' Выбери из списка и напиши какая тебе подходит.';
+                ctx.reply(str);
             })
             .catch(error => {
                 console.error('Search failed:', error)
