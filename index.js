@@ -6,17 +6,17 @@ const nightmare = Nightmare({ show: false })
 
 bot.start((ctx) => ctx.reply('Добро пожаловать!')); //ответ бота на команду /start
 bot.help((ctx) => ctx.reply('Тут нет.')); //ответ бота на команду /help
-bot.hears('xxx', (ctx) => {
-    nightmare
-        .goto('https://learn.javascript.ru/async-await')
-        .wait('.main__header-title')
-        .evaluate(() => document.querySelector('.main__header-title').textContent)
-        .end()
-        .then(data => ctx.reply(data))
-        .catch(error => {
-            console.error('Search failed:', error)
-            ctx.reply(error)
-        });
-    ctx.reply('asdfg');
-})
+// bot.hears('xxx', (ctx) => {
+//     nightmare
+//         .goto('https://learn.javascript.ru/async-await')
+//         .wait('.main__header-title')
+//         .evaluate(() => document.querySelector('.main__header-title').textContent)
+//         .end()
+//         .then(data => ctx.reply(data))
+//         .catch(error => {
+//             console.error('Search failed:', error)
+//             ctx.reply(error)
+//         });
+//     ctx.reply('asdfg');
+// })
 bot.launch();
