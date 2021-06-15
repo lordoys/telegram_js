@@ -1,6 +1,6 @@
 const { Telegraf } = require('telegraf');
-const bot = new Telegraf('1794222017:AAGieh5HVbGgzhXmAG8FUVClC-3_5YliUJU');
-// const bot = new Telegraf('1731362068:AAGZGBDhdv7h5-jBCps1ZyTPuq8ZPXD0Ztk');
+// const bot = new Telegraf('1794222017:AAGieh5HVbGgzhXmAG8FUVClC-3_5YliUJU');
+const bot = new Telegraf('1731362068:AAGZGBDhdv7h5-jBCps1ZyTPuq8ZPXD0Ztk');
 const Nightmare = require('nightmare')
 const nightmare = Nightmare({ show: false })
 
