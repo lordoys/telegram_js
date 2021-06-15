@@ -19,4 +19,5 @@ bot.help((ctx) => ctx.reply('Тут нет.')); //ответ бота на ко�
 //         });
 //     ctx.reply('asdfg');
 // })
+
 bot.launch();
