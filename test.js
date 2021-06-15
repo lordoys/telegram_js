@@ -16,12 +16,16 @@ app.listen(port, () => {
             .wait('.main__header-title')
             .evaluate(() => document.querySelector('.main__header-title').textContent)
             .end()
-            .then(data => ctx.reply(data))
+            .then(data => {
+                console.error(data);
+                ctx.reply(data);
+            })
             .catch(error => {
-                console.error('Search failed:', error)
+                console.error('Search failed:', error);
+                ctx.reply(error);
             });
     })
-    bot.launch();
+    bot.launch().then(r => console.log(r));
 
     process.once('SIGINT', () => bot.stop('SIGINT'))
     process.once('SIGTERM', () => bot.stop('SIGTERM'))
