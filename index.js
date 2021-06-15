@@ -17,5 +17,6 @@ bot.hears('xxx', (ctx) => {
             console.error('Search failed:', error)
             ctx.reply(error)
         });
+    ctx.reply('asdfg');
 })
 bot.launch();
