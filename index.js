@@ -7,22 +7,24 @@ const nightmare = Nightmare({ show: false });
 const bot = new Telegraf('1731362068:AAGZGBDhdv7h5-jBCps1ZyTPuq8ZPXD0Ztk');
 
 app.listen(port, () => {
-    bot.start((ctx) => ctx.reply('Добро пожаловать!'));
-    bot.help((ctx) => ctx.reply('Тут sdfsdfsdfsdfsfdsfd нет.'));
+    bot.start((ctx) => ctx.reply('Добро пожаловать!')); //ответ бота на команду /start
+    bot.help((ctx) => ctx.reply('Тут нет.')); //ответ бота на команду /help
     bot.hears('xxx',  (ctx) => {
+        console.log('Начало парсинга');
         nightmare
             .goto('https://learn.javascript.ru/async-await')
             .wait('.main__header-title')
             .evaluate(() => document.querySelector('.main__header-title').textContent)
             .end()
             .then(data => {
-                console.error(data);
+                console.log(data);
                 ctx.reply(data);
             })
             .catch(error => {
                 console.error('Search failed:', error);
                 ctx.reply(error);
             });
+        console.log('Конец парсинга');
     })
     bot.launch().then(r => console.log(r));
 
