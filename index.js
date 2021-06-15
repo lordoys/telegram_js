@@ -15,6 +15,7 @@ bot.hears('xxx', (ctx) => {
         .then(data => ctx.reply(data))
         .catch(error => {
             console.error('Search failed:', error)
+            ctx.reply(error)
         });
 })
 bot.launch();
