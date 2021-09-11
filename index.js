@@ -78,7 +78,7 @@ app.listen(port, () => {
         fs.readFile('test.txt', 'utf8' , (err, data) => {
             if (err) {
                 console.error(err)
-                return
+                return false;
             }
             start(data).then(r => r);
         })
@@ -86,5 +86,5 @@ app.listen(port, () => {
 
     bot.launch().then(r => console.log(r));
 
-    setInterval(() => parse(), 3600000);
+    setInterval(() => parse(), 1800000);
 });
