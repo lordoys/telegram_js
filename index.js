@@ -86,5 +86,5 @@ app.listen(port, () => {
 
     bot.launch().then(r => console.log(r));
 
-    setInterval(() => parse(), 1800000);
+    setInterval(() => parse(), 600000);
 });
