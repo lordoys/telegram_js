@@ -11,8 +11,8 @@ const sliceParametrs = function (substring, parametr, url) {
     const start = url.indexOf(substring);
     const end = url.indexOf('&', start + substring.length);
     const first = url.slice(0, start)
-    const second = end ? '' : url.slice(end);
-    return first + parametr + second;
+    const second = (end > -1) ? url.slice(end) : '';
+    return (first + parametr + second);
 };
 
 app.listen(port, () => {
