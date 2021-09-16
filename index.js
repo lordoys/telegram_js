@@ -197,7 +197,17 @@ app.listen(port, () => {
             });
         }
 
-        const startSearching = function () {
+        const startSearching = function (ctx) {
+            const userId = ctx.update.callback_query.from.id;
+            users[userId].active = true;
+
+            fs.writeFile("data.txt", JSON.stringify(users), function(err) {
+                if (err) {
+                    console.log(err);
+                    return false;
+                }
+            });
+
             console.log('Start!');
         }
 
@@ -305,7 +315,7 @@ app.listen(port, () => {
                     setMaxPrice(ctx);
                     break;
                 case 'startSearching':
-                    startSearching();
+                    startSearching(ctx);
                     break;
             }
         });
