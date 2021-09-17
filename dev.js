@@ -320,6 +320,6 @@ app.listen(port, () => {
             }
         });
 
-        setInterval(() => parse(), 600000);
+        setInterval(() => parse(), 1000);
     });
 });
