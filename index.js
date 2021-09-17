@@ -5,6 +5,7 @@ const app = express();
 const fetch = require('node-fetch');
 const cheerio = require('cheerio');
 const fs = require('fs');
+const {use} = require("express/lib/router");
 const bot = new Telegraf('1731362068:AAGZGBDhdv7h5-jBCps1ZyTPuq8ZPXD0Ztk');
 let users;
 const sliceParametrs = function (substring, parametr, url) {
@@ -217,7 +218,7 @@ app.listen(port, () => {
                 const response = await fetch(user.url);
                 const body = await response.text();
                 const $ = cheerio.load(body);
-                const result = Array.from($('.list-simple__output .announcement-container')).reduce((carList, car) => {
+                Array.from($('.list-simple__output .announcement-container')).reduce((carList, car) => {
                     let carId = null;
                     let carPrice = null;
                     let carName = null;
@@ -273,7 +274,7 @@ app.listen(port, () => {
                     });
                 }
 
-                console.log(result.length);
+                console.log(users);
             }
 
             const usersList = Object.keys(users);
